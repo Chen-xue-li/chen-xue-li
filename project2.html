@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>书法家庄辉个人介绍</title>
+  <style>
+    /* 全局样式 */
+    body {
+      font-family: "Microsoft YaHei", serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    /* 图片样式 */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .header-img {
+      width: 100%;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #ddd;
+      margin: 30px 0;
+    }
+
+    h3 {
+      color: #2c3e50;
+      border-left: 4px solid #c0392b;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* 列表样式 */
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    ul li {
+      background: white;
+      padding: 10px 20px;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    ul li:hover {
+      background: #c0392b;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* 人物简介区域布局 */
+    .profile-section {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .profile-img-container {
+      flex: 0 0 200px; /* 固定宽度 */
+    }
+
+    .profile-text {
+      flex: 1;
+    }
+
+    .profile-text p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    
+    .profile-text p strong {
+      color: #c0392b;
+    }
+
+    /* 底部版权 */
+    .footer {
+      text-align: center;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+    
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 20px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .profile-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-img-container {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .profile-text {
+        width: 100%;
+      }
+      
+      ul li {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="./images/works.jpg" alt="作品集标题" class="header-img" onerror="this.src='https://via.placeholder.com/800x200?text=作品集Banner'">
+
+  <div class="profile-section">
+    <div class="profile-img-container">
+      <img src="./images/writer.jpg" alt="庄辉个人照片" onerror="this.src='https://via.placeholder.com/300x400?text=庄辉照片'">
+    </div>
+    <div class="profile-text">
+      <h3>人物简介</h3>
+      <p><strong>生平：</strong>1959 年 7 月生，籍江苏淮安，曾就读于北京大学首届书法艺术研究班等，长期深耕书法领域，现为国家一级美术师等职。</p>
+      <p><strong>工作领域：</strong>聚焦书法创作与理论研究，同时从事美术馆艺术管理及书画艺术推广工作。</p>
+      <p><strong>艺术成就：</strong>作品与论文逾百次入展国家级、省级书展，出版多部专著，曾在中国美术馆、韩国首尔等地举办个人书法展。</p>
+      <p><strong>风格特点：</strong>立足帖学兼融碑意，诸体兼擅尤以草书、魏书见长，用笔收纵有度，墨色丰富，兼具浑朴苍茫与奇崛意趣。</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <h3>个人作品列表</h3>
+  <ul>
+    <li>《兰亭序临摹》</li>
+    <li>《道德经节选》</li>
+    <li>《山水诗卷》</li>
+    <li>《论语集句》</li>
+    <li>《精气神》条幅</li>
+  </ul>
+
+  <div style="text-align: center;">
+    <a href="index.html" class="back-btn">返回主页</a>
+  </div>
+</body>
+</html>
