@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字经济作品集 | 个人展示</title>
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            height: 100%;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            padding-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            flex: 1 0 auto;
+            width: 100%;
+        }
+        
+        /* 排版 */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #3498db;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #e74c3c;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        /* Header样式 - 固定在顶部 */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        /* 导航菜单 - 修改hover效果为白底黑字 */
+        nav {
+            height: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            height: 100%;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin-left: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a {
+            color: white;
+            font-weight: 500;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        /* 桌面端hover效果：白底黑字 */
+        nav ul li a:hover {
+            background-color: white;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        /* 移动端菜单按钮 - 移到右侧 */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+        
+        /* 个人介绍区域 */
+        .intro {
+            background-color: #f9f9f9;
+        }
+        
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .profile-img {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-info h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .profile-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            color: #7f8c8d;
+        }
+        
+        .meta-item i {
+            margin-right: 8px;
+            color: #3498db;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* 技能展示区域 - 不同颜色 */
+        .skills-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .skill-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .skill-percent {
+            color: #3498db;
+            font-weight: 700;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        /* 每个技能条不同颜色 */
+        .skill-progress.html-css {
+            background-color: #e44d26; /* HTML/CSS橙色 */
+        }
+        
+        .skill-progress.js {
+            background-color: #f0db4f; /* JavaScript黄色 */
+        }
+        
+        .skill-progress.vue {
+            background-color: #41b883; /* Vue绿色 */
+        }
+        
+        .skill-progress.react {
+            background-color: #61dafb; /* React蓝色 */
+        }
+        
+        .skill-progress.echarts {
+            background-color: #c23531; /* ECharts红色 */
+        }
+        
+        .skill-progress.data-analysis {
+            background-color: #9b59b6; /* 数据分析紫色 */
+        }
+        
+        /* 项目展示区域 */
+        .projects {
+            background-color: #f9f9f9;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+            background-color: #f0f2f5;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .tech-tag {
+            background-color: #eef7ff;
+            color: #3498db;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .project-link:hover {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        /* 联系信息区域 - 新布局 */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            padding-right: 30px;
+        }
+        
+        .contact-details {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2c3e50;
+        }
+        
+        /* Footer样式 */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: auto;
+            flex-shrink: 0;
+            width: 100%;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .back-to-top {
+            background-color: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            cursor: pointer;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1199px) {
+            /* 平板端样式 */
+            .intro-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .profile-info h1 {
+                font-size: 2.2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-content {
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            /* 手机端样式 */
+            body {
+                padding-top: 70px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .header-container {
+                padding: 0 15px;
+                position: relative;
+            }
+            
+            /* 移动端菜单按钮显示在右侧 */
+            .mobile-menu-btn {
+                display: block;
+                right: 15px;
+            }
+            
+            /* 移动端导航菜单样式 - 每个li占满宽度和高度 */
+            nav {
+                height: auto;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                height: auto;
+                background-color: #000;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid #333;
+                height: auto;
+                display: block;
+            }
+            
+            /* 移动端导航链接样式 - 占满整个li */
+            nav ul li a {
+                display: block;
+                width: 100%;
+                height: auto;
+                padding: 18px 20px;
+                text-align: center;
+                color: white;
+                font-size: 1.1rem;
+                border-radius: 0;
+                transition: all 0.3s ease;
+            }
+            
+            /* 移动端hover效果：白底黑字，占满整个li */
+            nav ul li a:hover {
+                background-color: white;
+                color: #000;
+            }
+            
+            .skills-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header导航区域 -->
+    <header>
+        <div class="header-container">
+            <div class="logo">个人<span>介绍</span>网站</div>
+            <!-- 移动端菜单按钮 - 在右侧 -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                ☰
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#intro">个人介绍</a></li>
+                    <li><a href="#skills">技能展示</a></li>
+                    <li><a href="#projects">项目作品</a></li>
+                    <li><a href="#contact">联系信息</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <!-- 个人介绍区域 -->
+        <section id="intro" class="intro">
+            <div class="container">
+                <div class="intro-content fade-in">
+                    <div class="profile-img">
+                        <img src="images/girl.png" alt="个人头像" onerror="this.src='https://via.placeholder.com/250x250/3498db/ffffff?text=头像'">
+                    </div>
+                    <div class="profile-info">
+                        <h1>陈雪丽</h1>
+                        <div class="profile-meta">
+                            <div class="meta-item">
+                                <span>24级数字经济1班</span>
+                            </div>
+                            <div class="meta-item">
+                                <span>数字经济专业</span>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <p>我是数字经济专业的本科生，对数字技术如何重塑经济模式充满热情。我专注于学习数据分析、数字营销和前端开发，致力于将技术技能与商业洞察相结合。</p>
+                            <p>在校期间，我参与了多个数字化项目，包括电商数据分析、区块链应用探索和数字媒体营销策划。我相信数字经济是未来发展的关键驱动力，希望能在这一领域做出创新贡献。</p>
+                            <p>我具备扎实的编程基础，熟悉HTML、CSS、JavaScript等前端技术，同时也在学习Vue、React等现代化框架，能够将复杂数据通过ECharts等工具进行可视化展示。</p>
+                        </div>
+                    </div>
+                </div
+            </div>
+        </section>
+
+        <!-- 技能展示区域 -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title">技术技能</h2>
+                <div class="skills-content">
+                    <div class="skill-item fade-in">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress html-css" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item fade-in">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress js" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item fade-in">
+                        <div class="skill-header">
+                            <span class="skill-name">Vue.js</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress vue" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item fade-in">
+                        <div class="skill-header">
+                            <span class="skill-name">React</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress react" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item fade-in">
+                        <div class="skill-header">
+                            <span class="skill-name">ECharts</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress echarts" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item fade-in">
+                        <div class="skill-header">
+                            <span class="skill-name">数据分析</span>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress data-analysis" data-width="88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目作品区域 -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">项目作品</h2>
+                <div class="projects-grid">
+                    <!-- 项目1 -->
+                    <div class="project-card fade-in">
+                        <div class="project-img" style="background-color: #eee;">
+                            <img src="./images/picture1.png" alt="项目1">
+                        </div>
+                        <div class="project-content">
+                            <h3>导航菜单布局</h3>
+                            <p>一个门户网站风格的导航菜单布局示例，包含背景图片和多列列表。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Layout</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="./project1.html" class="project-link">查看项目</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 项目2 -->
+                    <div class="project-card fade-in">
+                        <div class="project-img" style="background-color: #eee;">
+                            <img src="./images/picture2.png" alt="项目2">
+                        </div>
+                        <div class="project-content">
+                            <h3>书法家庄辉个人页</h3>
+                            <p>展示书法家庄辉的生平、成就及作品集，使用语义化HTML标签构建。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">Table</span>
+                                <span class="tech-tag">Semantic</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="./project2.html" class="project-link">查看项目</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 项目3 -->
+                    <div class="project-card fade-in">
+                        <div class="project-img" style="background-color: #eee;">
+                            <img src="./images/picture3.png" alt="项目3">
+                        </div>
+                        <div class="project-content">
+                            <h3>CSS3 炫彩动画</h3>
+                            <p>使用 CSS3 Keyframes 和滤镜实现的炫彩旋转加载动画效果。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">Animation</span>
+                                <span class="tech-tag">Gradient</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="./project3.html" class="project-link">查看项目</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系信息区域 - 新布局 -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">联系信息</h2>
+                <div class="contact-content fade-in">
+                    <!-- 左侧联系信息 -->
+                    <div class="contact-info">
+                        <h3>我的联系方式</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <strong>姓名</strong>
+                                <span>陈雪丽</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>班级</strong>
+                                <span>24级数字经济1班</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>专业</strong>
+                                <span>数字经济</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>邮箱</strong>
+                                <span>chenxueli@example.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>电话</strong>
+                                <span>+86 138-xxxx-xxxx</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>地址</strong>
+                                <span>广西南宁-南宁学院</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>教育背景</strong>
+                                <span>南宁学院数字经济专业本科在读，预计2028年毕业</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>主修课程</strong>
+                                <span>数据分析、数字营销、前端开发、电子商务</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧联系表单 -->
+                    <div class="contact-form">
+                        <h3>发送消息</h3>
+                        <form id="messageForm">
+                            <div class="form-group">
+                                <label for="name">您的姓名</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">您的邮箱</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">消息内容</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">发送消息</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop">
+        ↑
+    </div>
+
+    <!-- Footer页脚 -->
+    <footer>
+        <div class="footer-container">
+            <p>@copyright 2025 数字经济作品集 | 陈雪丽 版权所有</p>
+            <p>本网站采用响应式设计，适配桌面、平板和手机端</p>
+        </div>
+    </footer>
+
+    <script>
+        // DOM元素获取
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        const backToTopBtn = document.getElementById('backToTop');
+        const skillProgressBars = document.querySelectorAll('.skill-progress');
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const messageForm = document.getElementById('messageForm');
+        
+        // 移动端菜单切换
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+        
+        // 点击导航链接时关闭移动菜单
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+        
+        // 返回顶部按钮显示/隐藏逻辑
+        window.addEventListener('scroll', () => {
+            // 获取header高度
+            const headerHeight = document.querySelector('header').offsetHeight;
+            
+            // 当滚动超过header高度时显示返回顶部按钮
+            if (window.scrollY > headerHeight) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+            
+            // 滚动时触发元素渐入效果
+            triggerFadeInOnScroll();
+            
+            // 滚动时触发技能进度条动画
+            triggerSkillAnimationOnScroll();
+        });
+        
+        // 返回顶部功能
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 技能进度条动画
+        function animateSkillBars() {
+            skillProgressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        }
+        
+        // 滚动时触发技能动画
+        function triggerSkillAnimationOnScroll() {
+            const skillsSection = document.getElementById('skills');
+            const sectionPosition = skillsSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (sectionPosition < screenPosition) {
+                animateSkillBars();
+            }
+        }
+        
+        // 滚动时触发渐入效果
+        function triggerFadeInOnScroll() {
+            fadeElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.1;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // 表单提交处理
+        messageForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // 简单验证
+            if (!name || !email || !subject || !message) {
+                alert('请填写所有必填字段');
+                return;
+            }
+            
+            // 这里应该是发送到服务器的代码
+            // 现在只是模拟提交成功
+            alert(`感谢 ${name} 的留言！\n我们已收到您的消息，会尽快回复。`);
+            
+            // 重置表单
+            messageForm.reset();
+        });
+        
+        // 初始化元素状态
+        function init() {
+            // 设置技能进度条初始宽度为0
+            skillProgressBars.forEach(bar => {
+                bar.style.width = '0';
+            });
+            
+            // 设置渐入元素初始状态
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // 触发初始滚动检查
+            triggerFadeInOnScroll();
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
